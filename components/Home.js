@@ -16,9 +16,9 @@ export const Home = (props) =>{
             <Icon name="folder-images" size={50} color="white"/>
             <Text style={styles.buttonText}>Gallery</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-          <Icon1 name="featured-play-list" size={50} color="white"/>
-            <Text style={styles.buttonText}>About</Text>
+          <TouchableOpacity style={styles.button} onPress={()=> props.navigation.navigate("VideosGallery")}>
+          <Icon name="folder-video" size={50} color="white"/>
+            <Text style={styles.buttonText}>Videos</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.row}>
