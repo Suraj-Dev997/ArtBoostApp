@@ -1,83 +1,95 @@
 
-import { View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text, Image, ScrollView,Linking,StatusBar  } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import IconF from 'react-native-vector-icons/FontAwesome';
+import IconA from 'react-native-vector-icons/AntDesign';
+
+
+
+
+
 
 
 export const Home = (props) =>{
+  const handleButtonClick = () => {
+    // Open the website in the default browser
+    Linking.openURL('http://10.0.2.2:8000');
+  };
     return(
-      
         <View style={styles.container}>
-          <View></View>
-            <Image source={{uri:'https://www.w3schools.com/html/pic_trulli.jpg'}} style={styles.image}/>
+           <StatusBar backgroundColor="#7a057a"/>
+          <View style={styles.container1}> 
         <View style={styles.row}>    
-          <TouchableOpacity style={styles.button} onPress={()=> props.navigation.navigate("Gallery")}>
-            <Icon name="folder-images" size={50} color="white"/>
-            <Text style={styles.buttonText}>Gallery</Text>
+          <TouchableOpacity style={styles.button} onPress={()=> props.navigation.navigate("HB")}>
+          <IconA name="antdesign" size={30} color="#fff"/>
+            <Text style={styles.buttonText}>HB Camp Activity</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={()=> props.navigation.navigate("VideosGallery")}>
-          <Icon name="folder-video" size={50} color="white"/>
-            <Text style={styles.buttonText}>Videos</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.row}>
-          <TouchableOpacity style={styles.button} onPress={()=> props.navigation.navigate("Contact")}>
-          <IconF name="question-circle" size={50} color="white"/>
-            <Text style={styles.buttonText} >Contact</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-          <Icon1 name="comment" size={50} color="white"/>
-            <Text style={styles.buttonText}>FAQ</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.row}>
-          <TouchableOpacity style={styles.button} onPress={()=> props.navigation.navigate("AboutApp")}>
-          <Icon name="info-with-circle" size={50} color="white"/>
-            <Text style={styles.buttonText}  >About App</Text>
-          </TouchableOpacity>
-          {/* <TouchableOpacity style={styles.button} >
-          <Icon1 name="admin-panel-settings" size={50} color="white"/>
-            <Text style={styles.buttonText}>Admin</Text>
+          {/* <TouchableOpacity style={styles.button} onPress={()=> props.navigation.navigate("Revenue")}>
+          <IconA name="antdesign" size={30} color="#fff"/>
+            <Text style={styles.buttonText}>Revenue Prediction Activity</Text>
           </TouchableOpacity> */}
+          <TouchableOpacity style={styles.button} onPress={()=> props.navigation.navigate("Mydromain")}>
+          <IconA name="antdesign" size={30} color="#fff"/>
+            <Text style={styles.buttonText}>MyDydro Tracking Format</Text>
+          </TouchableOpacity>
         </View>
+        <View style={styles.row}>
+        <TouchableOpacity style={styles.button} onPress={()=> props.navigation.navigate("Calender")}>
+          <IconA name="antdesign" size={30} color="#fff" />
+            <Text style={styles.buttonText}>Quiz Activity</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} >
+          <IconA name="antdesign" size={30} color="#fff"/>
+            <Text style={styles.buttonText} >Poster</Text>
+          </TouchableOpacity>
+        </View>
+          </View>
       </View>
-      
     );
   }
-  
+
   const styles = StyleSheet.create({
     container: {
-      backgroundColor:'#B9D9EB',
+      backgroundColor:'#fff',
       flex: 1,
-      padding: 20,
+ 
       justifyContent: 'center',
+      
+    },
+    container1: {
       alignItems: 'center',
+      padding: 10,
+      // justifyContent: 'center',
+      
     },
     row: {
       flexDirection: 'row',
-      marginBottom: 10,
+      marginBottom: 6,
     },
     button: {
       flex: 1,
-      marginHorizontal: 5,
+      marginHorizontal: 3,
       height: 100,
-      backgroundColor: '#318CE7',
+      textAlign:'center',
+      backgroundColor: '#7a057a',
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius:10,
+      // borderRadius:10,
  
     },
     image: {
       width: '100%',
-      height: 200,
-      borderRadius:10,
-      marginBottom:10,
+      height: 140,
+      // borderRadius:10,
+      marginBottom:6,
     
     },
     buttonText: {
+      marginTop:10,
+      textAlign:'center',
       color: 'white',
       fontSize: 18,
-      fontWeight: 'bold',
+     
     },
   });

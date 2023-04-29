@@ -1,38 +1,47 @@
-import React, { useEffect } from 'react';
-import { Image, StyleSheet, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { Text } from 'react-native/Libraries/Text/Text';
+import { useEffect,useState } from 'react';
+import { Text, View, Button,Image, FlatList, StyleSheet, ScrollView,ImageBackground } from 'react-native';
 
- export const SplashScreen = (props) => {
-    const navigation = useNavigation();
+export const SplashScreen = ({navigation }) =>{
 
-    // useEffect(() => {
-    //   setTimeout(() => {
-    //     navigation.navigate('Home');
-    //   }, 3000); 
-    // }, []);
-
-  return (
-    <View style={styles.container}>
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.replace('Login');
+    }, 5000);
+  }, [navigation]);
+    return(
+      <View style={styles.container}>
+        <ImageBackground
+        source={require('.//images/Splash.jpg')} 
+        style={styles.backgroundImage}></ImageBackground>
       {/* <Image
-        style={styles.logo}
-        source={require('../images/profile.png')}
+        style={styles.img}
+        source={require('.//images/profile.png')}
+        resizeMode="contain"
       /> */}
-      <Text>Splash Screen</Text>
+      {/* <Text style={styles.logo}>DIGI</Text> */}
     </View>
-  );
-};
-
-const styles = StyleSheet.create({
+    );
+  }
+  const styles = StyleSheet.create({
     container: {
       flex: 1,
+      backgroundColor: '#fff',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#fff',
+    },
+    backgroundImage: {
+      flex: 1,
+      width: '100%',
+      height: '100%',
+
+    
     },
     logo: {
-      width: 200,
-      height: 200,
+      fontSize:70,
+      fontWeight:'800',
+      color: '#7a057a',
+    },
+    img: {
+      width:'100%',
     },
   });
-  
